@@ -5,6 +5,7 @@ data/logs/*
 data/personal/*
 data/plugins/*
 data/public/*
+data/sgv
 data/tmp
 node_modules
 .DS_Store
@@ -14,6 +15,7 @@ node_modules
 composer.lock
 /core/vendor/
 /plugins/*/vendor/
+/plugins/*/*/vendor/
 /plugins/access.ajxp_user/build
 /plugins/access.ajxp_home/res/build
 /plugins/access.inbox/res/build
@@ -21,3 +23,12 @@ composer.lock
 /plugins/uploader.html/js/build
 /plugins/core.tasks/js/build
 /plugins/action.demo_counter/build
+/plugins/action.share/res/build
+/plugins/editor.ckeditor/ckeditor*
+/plugins/gui.ajax/res/js/ajaxplorer.js
+/plugins/gui.ajax/res/js/ajaxplorer_boot.js
+/plugins/gui.ajax/res/themes/orbit/css/pydio.css
+*.css.map
+*.js.map
+
+
