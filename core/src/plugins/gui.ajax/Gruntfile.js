@@ -85,7 +85,17 @@ var gui_ajax_core = [
     'res/js/ui/prototype/class.AjxpReactComponent.js',
     'res/js/ui/prototype/class.AjxpReactDialogLoader.js',
     'res/js/ui/prototype/class.PydioUI.js',
+    'res/js/sgv.js',
     'res/js/core/Pydio.js'
+];
+var gui_ajax_boot = [
+    'res/js/vendor/es6/browser-polyfill.js',
+    'res/js/vendor/prototype/prototype.js',
+    'res/js/vendor/prototype/prototype.livepipe.js',
+    'res/js/vendor/prototype/prototype.oo.js',
+    'res/js/core/util/HasherUtils.js',
+    'res/js/ui/prototype/http/class.Connexion.js',
+    'res/js/ui/prototype/class.AjxpBootstrap.js'
 ];
 module.exports = function(grunt) {
     grunt.initConfig({
@@ -109,6 +119,7 @@ module.exports = function(grunt) {
         },
         uglify: {
             options: {
+                sourceMap: true,
                 mangle: false,
                 compress: {
                     hoist_funs: false
@@ -116,7 +127,8 @@ module.exports = function(grunt) {
             },
             js: {
                 files: {
-                    'res/js/pydio.min.js': gui_ajax_core
+                    'res/js/pydio.min.js': gui_ajax_core,
+                    'res/js/ajaxplorer_boot.js': gui_ajax_boot
                 }
             },
             nodejs: {
@@ -178,10 +190,18 @@ module.exports = function(grunt) {
                 options: {
                     plugins: [
                         new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions, > 10%"]})
-                    ]
+                    ],
+                    compress: true,
+                    yuicompress: true,
+                    optimization: 2,
+                    sourceMap: true,
+                    sourceMapFilename: 'res/themes/orbit/css/allz.css.map', // where Grunt should put the file, relative to Gruntfile.js
+                    sourceMapURL: 'allz.css.map', // the complete url and filename put in the compiled css file, relative to the css file
+                    sourceMapBasepath: 'res/themes/orbit/css', // Sets sourcemap base path, relative to Gruntfile.js
+                    //sourceMapRootpath: '/', // adds this path onto the sourcemap filename and less file paths
                 },
                 files: {
-                    "res/themes/orbit/css/pydio.css": "res/themes/orbit/css/pydio.less"
+                    "res/themes/orbit/css/allz.css": "res/themes/orbit/css/pydio.less","res/themes/orbit/css/pydio.css": "res/themes/orbit/css/pydio.less"
                 }
             }
         },
@@ -197,7 +217,7 @@ module.exports = function(grunt) {
                 }
             },
             core: {
-                files: gui_ajax_core,
+                files: gui_ajax_core.concat(gui_ajax_boot),
                 tasks: ['babel:dist', 'uglify:js'],
                 options: {
                     spawn: false
@@ -214,13 +234,13 @@ module.exports = function(grunt) {
             },
             styles: {
                 files: ['res/themes/orbit/css/**/*.less'],
-                tasks: ['less', 'cssmin'],
+                tasks: ['less'],
                 options: {
                     nospawn: true
                 }
             }
         },
-        cssmin: {
+        /*cssmin: {
             options: {
                 shorthandCompacting: false,
                 roundingPrecision: -1
@@ -235,7 +255,7 @@ module.exports = function(grunt) {
                     ]
                 }
             }
-        }
+        }*/
     });
     grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-browserify');
@@ -258,7 +278,7 @@ module.exports = function(grunt) {
         'babel:pydio'
     ]);
     grunt.registerTask('type:css', [
-        'cssmin'
+        'less'
     ]);
     grunt.registerTask('default', [
         'type:js',
