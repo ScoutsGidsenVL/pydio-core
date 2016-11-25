@@ -5,9 +5,9 @@
   height: 30px;
   font-family: @fontReact;
   font-size: 12px;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   font-weight: 500;
-  color: #555;
+  color: @sgvAlmostBlack;
   -webkit-font-smoothing: auto;
   border-radius: @toolbars_buttons_border_radius;
   background: @toolbars_buttons_background_color;
@@ -66,8 +66,7 @@
   }
 }
 
-#ajxp_desktop[class^="ajxp_ws-"] #global_toolbar,
-#ajxp_desktop[class*=" ajxp_ws-"] #global_toolbar {
+#ajxp_desktop #global_toolbar {
   position: relative;
   height: @globalToolbarHeight;
   padding: 0 15px 0 5px;
@@ -90,12 +89,12 @@
 
   #top_toolbar{
     float:right;
-    margin-top:11px;
+    margin-top: 2px;
 
     a
     {
       font-size: @topbar_buttons_font_size;
-      padding: 5px 20px;
+      padding: 0 20px;
       font-weight: @topbar_buttons_font_weight;
       color: @topbar_buttons_color;
       &:hover{
@@ -116,10 +115,10 @@
   }
 }
 #ajxp_desktop.ajxp_ws-welcome #global_toolbar{
-  position: absolute;
+  //position: absolute;
   display: block;
-  width:99%;
-  background: transparent;
+  //width:99%; // With this rule, the toolbar is too wide.
+  //background: transparent;
   background-image: none !important;
   box-shadow: none;
   #clickable_home, div.custom_top_title, img.custom_logo_image.linked {
@@ -131,7 +130,7 @@
   font-size: 11px;
   padding: 3px 12px 4px 8px;
   height: 35px;
-  background-color: #e8e8e8;
+  background-color: @sgvBeige;
   color: rgb(111, 123, 136);
   border-right: 0;
   overflow: hidden;

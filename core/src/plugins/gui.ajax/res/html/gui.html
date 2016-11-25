@@ -16,7 +16,35 @@
     AJXP_ADDITIONAL_JS_FRAMEWORKS
     <script language="javascript" type="text/javascript" src="AJXP_CLIENT_RESOURCES_FOLDER/js/ajaxplorer_boot.js?v=AJXP_CURRENT_VERSION"></script>
     <script src="/plugins/editor.ckeditor/ckeditor/ckeditor.js"></script>
-    <link rel="icon" type="image/x-png" href="index.php?get_action=serve_favicon">
+
+    <!-- Default favicon's -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/favicon-16x16.png">
+
+    <!-- Apple favicon's -->
+    <link rel="apple-touch-icon" sizes="57x57" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/apple-icon-180x180.png">
+
+    <!-- Android favicon's -->
+    <link rel="icon" type="image/png" sizes="192x192"  href="https://static.scoutsengidsenvlaanderen.be/images/favicons/android-icon-192x192.png">
+    <link rel="manifest" href="https://static.scoutsengidsenvlaanderen.be/images/favicons/manifest.json">
+
+    <!-- MS favicon's & tile info-->
+    <meta name="msapplication-config" content="https://static.scoutsengidsenvlaanderen.be/images/favicons/browserconfig.xml" />
+    <meta name="application-name" content="Scouts en Gidsen Vlaanderen"/>
+    <meta name="msapplication-TileColor" content="#bdd732"/>
+    <meta name="msapplication-square70x70logo" content="https://static.scoutsengidsenvlaanderen.be/images/favicons/tiny.png"/>
+    <meta name="msapplication-square150x150logo" content="https://static.scoutsengidsenvlaanderen.be/images/favicons/square.png"/>
+    <meta name="msapplication-wide310x150logo" content="https://static.scoutsengidsenvlaanderen.be/images/favicons/wide.png"/>
+    <meta name="msapplication-square310x310logo" content="https://static.scoutsengidsenvlaanderen.be/images/favicons/large.png"/>
 </head>
 <body style="overflow: hidden;">
 <script type="text/javascript">
@@ -59,7 +87,10 @@
                 <div class="SF_input"><input type="password" name="password"  placeholder="AJXP_MESSAGE[182]"></div>
             </div>
             <div class="SF_element">
-                <input type="checkbox" class="radio" name="remember_me" id="remember_me"/><label for="remember_me" ajxp_message_id="261">AJXP_MESSAGE[261]</label>
+                <input type="checkbox" class="radio" name="remember_me" id="remember_me" checked="checked" /><label for="remember_me" ajxp_message_id="261">AJXP_MESSAGE[261]</label>
+            </div>
+            <div class="SF_element login_help">
+              <a class="login_help" href="https://wiki.scoutsengidsenvlaanderen.be/doku.php?id=handleidingen:groepsadmin:wachtwoord_vergeten">Gebruikersnaam of wachtwoord vergeten?</a>
             </div>
         </div>
     </form>

@@ -203,9 +203,26 @@
 		<client_configs uuidAttr="name">
             <template name="main_orbit" element="ajxp_desktop" position="top" theme="orbit"><![CDATA[
                 <div id="background-imager" ajxpClass="AjxpPane" ajxpOptions='{"fit":"height", "fitParent":"ajxp_desktop","imageBackgroundFromConfigs":"gui.ajax/WELCOME_PAGE_BACKGROUND_"}'>
-                    <div id="global_toolbar" ajxpClass="LogoWidget" ajxpOptions='{"link":"triggerRepositoryChange:ajxp_home", "linkTitle":"Back to Home"}'>
-                        <div id="logging_string" ajxpClass="UserWidget" ajxpOptions='{"menuEvent" : "over","menuOffsetLeft":11,"menuOffsetTop":11}'></div>
-						<div id="top_toolbar" ajxpClass="ActionsToolbar" ajxpOptions='{"submenuClassName":"panelHeaderMenu","submenuPosition":"bottom right","submenuOffsetTop":12,"toolbarsList":["admin"],"submenuOffsetTop":2}'></div>
+                    <div id="global_toolbar">
+                        <ul class="globale_menu">
+                            <li class="item_sgv"><a href="https://www.scoutsengidsenvlaanderen.be">Scouts en Gidsen Vlaanderen</a></li>
+                            <li><a href="https://www.scoutsengidsenvlaanderen.be/">Scouts en Gidsen Vlaanderen</a></li>
+                            <li><a href="https://www.hopper.be/">Hopper</a></li>
+                            <li><a href="https://groepsadmin.scoutsengidsenvlaanderen.be/groepsadmin/">Groepsadministratie</a></li>
+                            <li class="org"><a href="/">.Org</a></li>
+                            <li><a href="https://onkosten.scoutsengidsenvlaanderen.org/">Onkosten</a></li>
+                            <li><a href="https://vacature.scoutsengidsenvlaanderen.be/">Vacatures</a></li>
+                            <li><a href="https://www.scoutsengidsenvlaanderen.be/evenementen/">Evenementen</a></li>
+                            <li class="item_facebook"><a href="https://www.facebook.com/scoutsengidsenvlaanderen" style="background-image: url(https://www.scoutsengidsenvlaanderen.be/files/algemeen/menubalk/balk_sprite_fb.png);" title="Facebook">&nbsp;</a></li>
+                            <li class="item_twitter"><a href="https://twitter.com/ScoutsGidsenVL" style="background-image: url(https://www.scoutsengidsenvlaanderen.be/files/algemeen/menubalk/balk_sprite_twitter.png);" title="Twitter">&nbsp;</a></li>
+                        </ul>
+                        <ul class="account">
+                            <li class="item_registratie" style="display: initial;"><a href="https://groepsadmin.scoutsengidsenvlaanderen.be/groepsadmin/gebruiker-aanmaken?applicatie=org" rel="nofollow">Registreren</a></li>
+                            <li class="item_username" style="display: none;"><a href="#" onclick="; return to_home();" rel="nofollow"></a></li>
+                            <li class="item_home" style="display: none;"><a href="#" onclick="; return to_home();" rel="nofollow">Instellingen</a></li>
+                            <li class="item_help"><a href="https://wiki.scoutsengidsenvlaanderen.be/doku.php?id=handleidingen:org_website:start" target="_blank" rel="nofollow">Help</a></li>
+                            <li class="item_afmelden" style="display: none;"><a href="/" onclick="return logout();" rel="nofollow">Afmelden</a></li>
+                        </ul>
                     </div>
                     <div id="orbit_content" ajxpClass="AjxpPane" ajxpOptions='{"fit":"height", "fitParent":"ajxp_desktop"}'></div>
                 </div>

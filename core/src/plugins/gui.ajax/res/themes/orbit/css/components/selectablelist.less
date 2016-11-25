@@ -142,7 +142,7 @@
       position: relative;
       border-radius: 0;
       padding: 7px 4px;
-      border-bottom: 1px solid rgba(0,0,0,0.03);
+      //border-bottom: 1px solid rgba(0,0,0,0.03);
       div.thumbnail_selectable_cell{
         margin-right: 11px;
         background-color: transparent;
@@ -166,7 +166,6 @@
       }
       &.selected-focus{
         div.thumbLabel{
-          font-weight: 500;
         }
         div.thumbnail_cell_metadata{
           opacity: 0.8;
@@ -353,37 +352,37 @@
       padding: 2px 12px;
       border-bottom: 0;
     }
-  
+
     div.thumbnail_selectable_cell.detailed div.thumbnail_selectable_cell img{
       width: 16px !important;
       height: 16px !important;
       margin-top: 4px !important;
     }
-  
+
     div.thumbnail_selectable_cell.detailed div.thumbnail_selectable_cell{
       margin: 0;
       padding: 1px 7px 6px 6px;
       height: 22px !important;
     }
-  
+
     div.thumbnail_selectable_cell.detailed div.thumbnail_cell_metadata{
       display: none;
     }
-  
+
     div.class-FetchedResultPane.display_metadata div.thumbnail_selectable_cell.detailed div.thumbnail_cell_metadata{
       display: inherit;
     }
-  
-  
+
+
     div.ajxpNodeProvider.selected-focus{
       background-color: @filelist_selection_color !important;
     }
-  
+
     div.thumbnail_selectable_cell.detailed div.thumbLabel{
       font-size: @filelist_fetched_font_big;
       padding-top: 4px;
     }
-  
+
     div.thumbnail_selectable_cell.detailed span.text_label{
       padding-top: 0;
     }

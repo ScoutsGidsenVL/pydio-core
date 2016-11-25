@@ -1,0 +1,267 @@
+
+/*** Loading dialog ***/
+
+// Hide unnecessary information in the loading dialog
+#loader_dialog_footer {
+    display: none;
+}
+
+/*** Global toolbar ***/
+
+#global_toolbar {
+    // Force the height of the global toolbar
+    padding-top: 0 !important;
+
+    font-size: 0.75em;
+
+    #global_toolbar_content {
+        margin: 0px 480px 0px 280px;
+    }
+
+    ul {
+        padding: 2px 10px;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    li {
+        float: left;
+        list-style-type: none;
+        margin: 2px 12px 0 0;
+        line-height: 17px;
+    }
+
+    .item_sgv {
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        text-indent: -99999px;
+        background: url("https://www.scoutsengidsenvlaanderen.be/files/algemeen/menubalk/balk_sprites_sgv.png") no-repeat;
+    }
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active,
+    a:focus {
+        display: inline-block;
+        color: #FFF;
+        text-decoration: none;
+        transition: color 0.25s linear 0s;
+    }
+
+    a:hover,
+    a:active,
+    a:focus {
+        color: @sgvLightGreen;
+    }
+
+    .item_sgv a {
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        text-indent: -99999px;
+        background: url("https://www.scoutsengidsenvlaanderen.be/files/algemeen/menubalk/balk_sprites_sgv.png") no-repeat;
+    }
+
+    li.org a {
+        /* 'font-weight: bold;' doesn't make it stand out. */
+        font-weight: 800;
+    }
+
+    .item_facebook a,
+    .item_twitter a {
+        text-indent: 0;
+        margin: 0;
+        width: 15px;
+        height: auto;
+        font-size: calc(15 * 6.25%);
+        background: no-repeat 0 -15px;
+    }
+
+    img.custom_logo_image.linked {
+        display: none;
+    }
+
+    .account {
+        position: absolute;
+        top: 0;
+        right: 0px;
+        color: #FFF;
+    }
+
+    .account li {
+        margin-right: 6px;
+    }
+
+    .item_home a,
+    .item_help a,
+    .item_afmelden a {
+        display: inline-block;
+        position: relative;
+        top: -4px;
+        height: 20px;
+        width: 20px;
+        margin-top: 2px;
+        text-indent: -99999px;
+        background-image: url("https://www.scoutsengidsenvlaanderen.be/files/algemeen/menubalk/balk_sprite_account.png");
+    }
+
+    .item_home a {
+        background-position: -20px -20px;
+    }
+
+    .item_help a {
+        background-position: 0 -20px;
+    }
+
+    .item_afmelden a {
+        background-position: -40px -20px;
+    }
+
+    @media screen and (max-width: 1150px) {
+        #global_toolbar_content {
+            margin: 0px 220px 0px 20px;
+        }
+
+        .account {
+            right: 20px;
+        }
+    }
+}
+
+// Adapt the position of the background-image to the global toolbar
+#background-imager {
+    background-position: 50% @globalToolbarHeight !important;
+    background-repeat: no-repeat !important;
+}
+
+/*** Login page ***/
+
+// Hide the icon to switch languages
+.icon-flag[title="Taal"] {
+    display: none;
+}
+
+// Hide an unnecessary message at login
+.dialogLegend {
+    display: none;
+}
+
+// Display the login help as a link
+a.login_help {
+    margin-left: 4px;
+    color: @sgvLightGreen;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+// Layout the login help link when hovering
+a.login_help:hover {
+    color: #FFF;
+}
+
+/*** Home page ***/
+
+// Center the top left text on the home page
+#welcome {
+    text-align: center !important;
+}
+
+// Layout the custom link to our manual
+#home_account_pane #link-handleiding {
+    color: @sgvLightGreen;
+    text-decoration: none;
+}
+
+// Layout the custom link to our manual when hovering
+#link-handleiding:hover {
+    color: #FFF;
+}
+
+// Hide a useless description on the home page
+.workspace-description {
+    display: none !important;
+}
+
+// Fix the position of the worspace badges on the home page
+.workspace-badge {
+    margin-top: -3px !important;
+}
+
+#home_center_panel div#logo_div {
+    margin-top: ~"calc(50vh - 100px)" !important;
+}
+
+#home_center_panel div#logo_div::before {
+    content: "";
+    position: absolute;
+    transition: all 550ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    left: 0;
+    height: 230px;
+    width: 440px;
+    margin-left: ~"calc(50vw - 425px)";
+    background-color: rgba(34, 34, 34, 0.5);
+}
+
+// Hide the logo on the home page
+#logo_div img {
+    display: none;
+}
+
+/*** Repo page ***/
+
+// Adapt the position of the top right menu
+.menu.rootDirChooser.menuDetails {
+    top: @globalToolbarHeight !important;
+}
+
+// Hide 'About Pydio' in the top right menu
+#action_instance_splash {
+    display: none;
+}
+
+// Hide 'Alerts', 'Bookmarks' and 'My shares' in the repo chooser menu
+#repo_chooser + div > .simple-provider {
+    display: none;
+}
+
+// Hide the 'Go Pro' button for admin
+#pydio-go-pro_button {
+    display: none !important;
+}
+
+// Hide the 'Upgrade' button for admin -> update using git
+#perform_upgrade_button {
+    display: none !important;
+}
+
+// Hide the refresh-button
+.ajxp-goto-refresh {
+    display: none;
+}
+
+// Fix the layout of e-mail address in the button bar
+#files_list_header {
+    height: initial !important;
+}
+
+// Fix the layout of e-mail address in the button bar
+#buttons_bar_cont {
+    position: initial !important;
+}
+
+// Hide the button to hide the folders in the left bar
+#folders_pane_expander {
+    display: none !important;
+}
+
+// Hide disabled actions
+.action_bar a.disabled {
+    display: none !important;
+}
+
+// Hide the 'More' menu at the top center
+#group_more_action_button {
+    display: none !important;
+}

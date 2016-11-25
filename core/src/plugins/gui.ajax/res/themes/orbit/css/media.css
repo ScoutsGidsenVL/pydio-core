@@ -57,7 +57,7 @@ and (max-width : 720px) {
         width: 32px;
     }
     #logging_string div.user_widget_label:not(withImage){
-        padding-top: 10px;
+        padding-top: 1px;
     }
     #logging_string div.user_widget_label:not(withImage) i{
         display: none;
@@ -146,7 +146,7 @@ and (max-width : 420px){
         padding:0 20px;
         height:auto;
     }
-    
+
     div.repository_legend{
         display:none;
     }
