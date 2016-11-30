@@ -385,7 +385,7 @@
             </processing>
 		</action>
         <action name="open_with_unique">
-            <gui text="462" title="462" src="fileopen.png" iconClass="icon-eye-close" accessKey="preview_access_key" hasAccessKey="true">
+            <gui text="462" title="462" src="fileopen.png" iconClass="icon-eye-open" accessKey="preview_access_key" hasAccessKey="true">
                 <context selection="true" dir="" recycle="hidden"  behaviour="hidden"
                          actionBar="true" contextMenu="false" infoPanel="false"
                          actionBarGroup="inline,info_panel" inZip="false">
@@ -400,7 +400,7 @@
             </processing>
         </action>
         <action name="open_with" fileDefault="true">
-            <gui text="316" title="316" src="fileopen.png" iconClass="icon-eye-close" accessKey="open_with_access" hasAccessKey="true">
+            <gui text="316" title="316" src="fileopen.png" iconClass="icon-eye-open" accessKey="open_with_access" hasAccessKey="true">
                 <context selection="true" dir="" recycle="hidden"  behaviour="hidden"
                     actionBar="true" contextMenu="true" infoPanel="false"
                     actionBarGroup="get,info_panel" inZip="false">

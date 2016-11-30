@@ -608,7 +608,7 @@ Class.create("InfoPanel", AjxpPane, {
 			pydio.Registry.loadEditorResources(editors[0].resourcesManager);
 			var editorClass = Class.getByName(editors[0].editorClass);
 			if(editorClass){
-                this.contributePanelHeaderIcon('icon-eye-close', 'Preview', 'open_with');
+                this.contributePanelHeaderIcon('icon-eye-open', 'Preview', 'open_with');
 				if(getTemplateElement){
 					return '<div id="preview_rich_fake_element"></div>';
 				}else{
