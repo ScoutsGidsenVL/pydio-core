@@ -116,7 +116,7 @@ class Logger extends Plugin
                 $res .= print_r($value, true);
             }
         }
-        $res = str_replace(["\r\n", "\n", "\r"], ' ', $res);
+        //$res = str_replace(["\r\n", "\n", "\r"], ' ', $res);
         $ip = self::getClientAdress();
         $user = self::getLoggedUser();
         $logger = self::getInstance();
