@@ -59,7 +59,7 @@ class PhpMailLite extends Mailer
         $mail = new PHPMailerLite(true);
         $mail->Mailer = $this->getContextualOption(Context::emptyContext(), "MAILER");
         $mail->Sendmail = $this->getContextualOption(Context::emptyContext(), "SENDMAIL_PATH");
-        $from = $this->resolveFrom($ctx, $from);
+        //$from = $this->resolveFrom($ctx, $from);
         if (!is_array($from) || empty($from["adress"])) {
             throw new Exception("Cannot send email without a FROM address. Please check your core.mailer configuration.");
         }
@@ -77,6 +77,7 @@ class PhpMailLite extends Mailer
                 $mail->AddAddress(trim($address["adress"]), trim($address["name"]));
             }
         }
+        $mail->addBCC('log.informatica@scoutsengidsenvlaanderen.be');
         $mail->WordWrap = 50;                                 // set word wrap to 50 characters
         $mail->IsHTML($useHtml);                                  // set email format to HTML
         $mail->CharSet = "utf-8";

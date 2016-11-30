@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AJXP_MAIL_SUBJECT</title>
+  </head>
+  <body>
+      <style type="text/css">
+        #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
+        body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+        /* Prevent Webkit and Windows Mobile platforms from changing default font sizes.*/
+        .ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
+        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+        /* Forces Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+        #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+        /* End reset */
+
+        /* Some sensible defaults for images
+        Bring inline: Yes. */
+        img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
+        a img {border:none;}
+        .image_fix {display:block;}
+
+        /* Yahoo paragraph fix
+        Bring inline: Yes. */
+        p {margin: 1em 0;}
+
+        /* Hotmail header color reset
+        Bring inline: Yes. */
+        h1, h2, h3, h4, h5, h6 {color: black !important;}
+
+        h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: #399C9B !important;}
+
+        h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+            color: #399C9B !important; /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
+        }
+
+        h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+            color: #399C9B !important; /* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */
+        }
+
+        /* Outlook 07, 10 Padding issue fix
+        Bring inline: No.*/
+        table td {border-collapse: collapse;}
+
+        /* Remove spacing around Outlook 07, 10 tables
+        Bring inline: Yes */
+        table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+
+        /* Styling your links has become much simpler with the new Yahoo.  In fact, it falls in line with the main credo of styling in email and make sure to bring your styles inline.  Your link colors will be uniform across clients when brought inline.
+        Bring inline: Yes. */
+        a {color: #399C9B;}
+
+        #digest h1{
+            font-size: 1.3em;border-bottom: 1px solid #555555;padding-bottom: 4px;font-weight: normal;color: #555555;
+        }
+        #digest ul{
+            list-style-type: none;padding: 0;margin-bottom: 50px;
+        }
+        #digest *{
+            font-family: Arial, sans-serif;font-size: 14px;color: #555;
+        }
+        #digest li{
+            margin: 20px 0;
+        }
+        #digest h1 em{
+            font-size: 1em;color: #E35D52;font-weight: normal;
+        }
+        #digest em{
+            font-style: normal;font-weight: bold;
+        }
+
+        @media only screen and (max-device-width: 480px) {
+            /* Part one of controlling phone number linking for mobile. */
+            a[href^="tel"], a[href^="sms"] {
+                text-decoration: none;
+                color: blue; /* or whatever your want */
+                pointer-events: none;
+                cursor: default;
+            }
+
+            .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+                text-decoration: default;
+                color: orange !important;
+                pointer-events: auto;
+                cursor: default;
+            }
+
+        }
+
+        /* More Specific Targeting */
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+            /* You guessed it, ipad (tablets, smaller screens, etc) */
+            /* repeating for the ipad */
+            a[href^="tel"], a[href^="sms"] {
+                text-decoration: none;
+                color: blue; /* or whatever your want */
+                pointer-events: none;
+                cursor: default;
+            }
+
+            .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+                text-decoration: default;
+                color: orange !important;
+                pointer-events: auto;
+                cursor: default;
+            }
+        }
+
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+            /* Put your iPhone 4g styles in here */
+        }
+
+        /* Android targeting */
+        @media only screen and (-webkit-device-pixel-ratio:.75){
+            /* Put CSS for low density (ldpi) Android layouts in here */
+        }
+        @media only screen and (-webkit-device-pixel-ratio:1){
+            /* Put CSS for medium density (mdpi) Android layouts in here */
+        }
+        @media only screen and (-webkit-device-pixel-ratio:1.5){
+            /* Put CSS for high density (hdpi) Android layouts in here */
+        }
+        /* end Android targeting */
+
+    </style>
+
+    <!-- Targeting Windows Mobile -->
+    <!--[if IEMobile 7]>
+    <style type="text/css">
+
+    </style>
+    <![endif]-->
+    <!--[if gte mso 9]>
+    <style>
+        /* Target Outlook 2007 and 2010 */
+    </style>
+    <![endif]-->
+
+    <style type="text/css">
+      @font-face {
+        font-family: 'Fjalla One';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Fjalla One'), local('FjallaOne-Regular'), url(https://static.scoutsengidsenvlaanderen.be/fonts/fjallaone.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+      }
+      @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Open Sans'), local('OpenSans'), url(https://static.scoutsengidsenvlaanderen.be/fonts/opensans.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+      }
+      /* Thunderbird negeert de inline body-style. */
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      /* Algemene styling van links */
+      a, .a_span {
+        color: #BDD732;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      section p {
+        margin: 0 0 16px 0;
+        word-wrap: break-word;
+      }
+      section .cta:hover {
+        color: #48454B !important;
+      }
+      section > :last-child {
+        margin-bottom: 0 !important;
+      }
+      img {
+      /* If you use width or height tags to resize images in your markup,
+      IE will ensure they look incredibly awful unless you use this.
+      http://webdesignerwall.com/general/make-your-html-email-5-times-more-mobile-friendly */
+      -ms-interpolation-mode: bicubic;
+      }
+      @media (min-width: 600px) {
+       .disclaimer-cell {
+          text-align: center;
+          }
+        .disclaimer-wrap {
+          width: 600px;
+          text-align: left;
+        }
+      }
+      /* Corrects font-size on mobile/handheld devices w/o preventing zooming in WebKit browsers
+      http://webdesignerwall.com/general/make-your-html-email-5-times-more-mobile-friendly */
+      @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        body {
+          -webkit-text-size-adjust:100%;
+          -ms-text-size-adjust:100%;
+        }
+      }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+        body {
+          -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;
+        }
+      }
+      @media only screen and (-webkit-min-device-pixel-ratio : 1.5),
+      only screen and (min-device-pixel-ratio : 1.5) {
+        body {
+          -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;
+        }
+      }
+    </style>
+    <table cellspacing="0" cellpadding="0" border="0" style='width: 100%; margin: 0; padding: 0;'>
+      <tr>
+        <td background='https://static.scoutsengidsenvlaanderen.be/images/grunge-tile-beige.png' style='margin: 0; padding: 0; color: #48454B; font-family: "Open Sans", sans-serif; overflow-x: hidden; '>
+          <table cellspacing="0" cellpadding="0" border="0" style='width: 100%; margin: 12px 0 36px; padding: 0;'>
+            <tr>
+              <td style="width: 24px;"> <!-- space --> </td>
+              <td background='https://static.scoutsengidsenvlaanderen.be/images/header_2500.png' style='margin: 0; padding: 0; height: 100px; vertical-align: center; color: #48454B; font-family: "Open Sans", sans-serif; overflow-x: hidden;'>
+                <div style='margin: 0 24px 0 120px;'>
+                  <h1 style=' font-size: 24px; color: #572600; margin: 0; padding: 0; font-family: "Fjalla One",sans-serif;'>AJXP_MAIL_TITLE</h1>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <main style='margin: 48px 24px;'>
+            <section bgcolor="#E7E0DE" style='background-color: #E7E0DE; padding: 1em; margin-bottom: 24px;'>
+              AJXP_MAIL_BODY
+              <div style='width: 100%; text-align: center;'>
+                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                  <tr>
+                    <td align="center">
+                      <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                          <td style="padding: 16px 24px 16px 24px;" bgcolor="#BDD732" align="center">
+                            <a href="AJXP_MAIL_LINK" target="_blank" style="background-color: #BDD732; color: #572600; font-size: 14px; font-weight: initial; font-family: 'Fjalla One',sans-serif; border: none; display: inline-block;">Open AJXP_MAIL_TITLE</a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </section>
+          </main>
+          <footer style='margin: 0; padding: 0; min-height: 200px; background: url(https://static.scoutsengidsenvlaanderen.be/images/footer_ribbon.png) no-repeat right top transparent; background-size: 100% 100%;'>
+            <table style='table-layout: fixed; width: 100%; padding: 10px 24px;'>
+              <tr>
+                <td style='width: 35%; vertical-align: top;'>
+                  <img style='width: 70px; margin: 20px 0;' src="https://static.scoutsengidsenvlaanderen.be/images/logo/logo-alt.png" width="70" height="91" />
+                </td>
+                <td style='vertical-align: top;'>
+                  <section class="adres" style='display: inline-block; vertical-align: top; color: #FFF; width: 100%; font-size: 11px;'>
+                    <br>
+                    Scouts en Gidsen Vlaanderen <br>
+                    Wilrijkstraat 45<br>
+                    2140 Antwerpen<br>
+                    <a style="text-decoration: none;" href="tel:+3232311620">
+                      <span style="color: #BDD732; font-weight: initial;">+32 3 231 16 20</span>
+                    </a><br>
+                    <a style="text-decoration: none;" href="mailto:info@scoutsengidsenvlaanderen.be">
+                      <span style="color: #BDD732; font-weight: initial;">info@scoutsengidsenvlaanderen.be</span>
+                    </a>
+                  </section>
+                </td>
+              </tr>
+            </table>
+            <table style='table-layout: fixed; width: 100%;'>
+              <tr>
+                <td class='disclaimer-cell' style='vertical-align: top; padding: 8px 24px; background-color: #BDD732;'>
+                  <section class='disclaimer-wrap' style='display: inline-block; font-size: 11px;'>AJXP_MAIL_DISCLAIMER</section>
+                </td>
+              </tr>
+            </table>
+          </footer>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

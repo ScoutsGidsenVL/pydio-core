@@ -503,6 +503,74 @@
 				]]></clientForm>
 			</processing>
 		</action>
+    <action name="ajxp_email">
+      <gui text="sgv.email" title="sgv.email.title" src="mail_generic.png" iconClass="icon-link" hasAccessKey="false">
+        <context selection="true" dir="" recycle="false" actionBar="true" actionBarGroup="change_main"
+                         contextMenu="true" infoPanel="true"/>
+        <selectionContext dir="true" file="true" recycle="false" unique="true"/>
+      </gui>
+      <rightsContext noUser="true" userLogged="only" read="false" write="true" adminOnly="false"/>
+      <processing>
+        <clientCallback prepareModal="true"><![CDATA[
+          function onLoad(oForm) {
+            var repoId = ajaxplorer.repositoryId || (ajaxplorer.user ? ajaxplorer.user.activeRepository : null);
+            oForm.down('[id="gebruikersgroep"]').innerHTML = ajaxplorer.user.repositories.get(repoId).label;
+            oForm.down('[id="email_file"]').innerHTML = ajaxplorer.getUserSelection().getUniqueNode().getLabel();
+
+            var box = document.getElementById('generic_dialog_box');
+            box.style.cssText += 'width: initial !important;';
+
+            /* Duplicate IDs :-( */
+            CKEDITOR.replace(box.querySelector('#email_area'));
+          }
+
+          function onOk() {
+          var url = document.location.href;
+          if(url.indexOf('#') > 0){
+            url = url.substring(0, url.indexOf('#'));
+          }
+          if(url.indexOf('?') > 0){
+            url = url.substring(0, url.indexOf('?'));
+          }
+          var selected = ajaxplorer.getUserSelection().getUniqueNode();
+          var repoId = ajaxplorer.repositoryId || (ajaxplorer.user ? ajaxplorer.user.activeRepository : null);
+          var repo = ajaxplorer.user.repositories.get(repoId);
+          var link = url + '?goto=' + repoId + encodeURIComponent(selected.getPath());
+
+          var params = $H({get_action:"send_mail"});
+          params.set('subject', selected.getLabel().replace(/^[0-9.-]+[ .-]+/, '').replace(/[ .-]*\.[a-zA-Z]{2,4}$/, ''));
+          params.set('message', CKEDITOR.instances.email_area.getData());
+          params.set('link', link);
+
+          var connexion = new Connexion();
+          connexion.setMethod("post");
+          connexion.setParameters(params);
+          connexion.sendSync();
+
+            hideLightBox(true);
+            return false;
+          }
+
+          modal.showDialogForm('E-mail', 'ajxp_email_form', onLoad, onOk);
+
+          // For firefox debugging: //# sourceURL=aaa_share.js
+        ]]></clientCallback>
+        <clientForm id="ajxp_email_form"><![CDATA[
+          <style>
+            #ajxp_email_form b {
+              display: inline-block;
+              width: 70px;
+            }
+          </style>
+          <div id="ajxp_email_form" action="ajxp_email">
+            <p><b>Aan:</b> Alle gebruikers van <em id="gebruikersgroep"></em></p>
+            <p><b>Bestand:</b> <span id="email_file"></span></p>
+            <p><b>Bericht:</b></p>
+            <textarea id="email_area" name="email_area"></textarea>
+          </div>
+        ]]></clientForm>
+      </processing>
+    </action>
 		<action name="stat">
             <rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly="false"/>
 			<processing>

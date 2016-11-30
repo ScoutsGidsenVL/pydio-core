@@ -216,6 +216,24 @@ Class.create("ActionsToolbar", AjxpPane, {
 			}
 		}.bind(this));
 		this.element.select('a').each(disableTextSelection);		
+
+        if (this.element.id === 'buttons_bar') {
+            var div = document.createElement("div");
+            div.style.display = 'inline-block';
+            if (pydio.user.canWrite() && pydio.repositoryId) {
+                div.id = 'emailadres';
+
+                // Based on the email address generated in plugins/core.mailer/Mailer.php
+                // I haven't found the js-equivalent for $repo->getSafeOption('EMAIL')
+                var email = pydio.user.repositories.get(pydio.repositoryId).label.toLowerCase().replace(/((_gouw_)|[\$#@~!&*()\[\];.,:?^ `\'\\\/ ])+/g, '_') + '_' + pydio.repositoryId.toLowerCase() + '@scoutsengidsenvlaanderen.org';
+
+                div.innerHTML = '<span style="display: inline-blok; float: left; box-sizing: border-box; height: 30px; padding: 9px 0px 10px 20px">E-mailadres:</span><a class="plain email" href="mailto:' + email + '" target="_blank" style="display: inline-blok; padding: 9px 11px 10px;">' + email + '</a>';
+            } else {
+                div.id = 'leesrechten';
+                div.innerHTML = '<span style="display: inline-blok; float: left; box-sizing: border-box; height: 30px; padding: 9px 10px 10px 20px">Je hebt enkel leesrechten op deze bestanden.</span>';
+            }
+            this.element.appendChild(div);
+        }
 	},
 	/**
 	 * Recompute separators if some toolbars are empty due to actions show/hide status.

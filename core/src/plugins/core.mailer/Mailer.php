@@ -567,11 +567,14 @@ class Mailer extends Plugin implements SqlTableProvider
         if (strpos($layout, "AJXP_MAIL_BODY") !== false) {
             $body = str_replace("AJXP_MAIL_BODY", $useHtml ? nl2br($body) : $body, $layout);
         }
-        if ($imageLink != null && $useHtml) {
-            $body = str_replace(array("AJXP_IMAGE_LINK"), "<a href='" . $imageLink . "'>" . '<img alt="Download" width="100" style="width: 100px;" src="cid:download_id">' . "</a>", $body);
-            $images[] = array("path" => AJXP_INSTALL_PATH . "/" . $layoutFolder . "/download.png", "cid" => "download_id");
-        } else {
-            $body = str_replace(array("AJXP_IMAGE_LINK", "AJXP_IMAGE_END"), "", $body);
+        if (strpos($body, "AJXP_MAIL_TITLE") !== false) {
+            $body = str_replace("AJXP_MAIL_TITLE", preg_replace('/^[^\]]+\] /', '', $subject) , $body);
+        }
+        if (strpos($body, "AJXP_MAIL_LINK") !== false) {
+            $body = str_replace("AJXP_MAIL_LINK", $imageLink , $body);
+        }
+        if (strpos($body, "AJXP_MAIL_DISCLAIMER") !== false) {
+            $body = str_replace("AJXP_MAIL_DISCLAIMER", 'Verstuurd naar ' . $ctx->getRepository()->getDisplay() . ' door ' . $this->abstractUserToAdress($ctx->getUser())['name'] . ' via ' . ($useHtml ? '<a href="https://www.scoutsengidsenvlaanderen.org/" style="color: white;">www.scoutsengidsenvlaanderen.org</a>' : 'www.scoutsengidsenvlaanderen.org') , $body);
         }
         $body = str_replace("AJXP_MAIL_SUBJECT", $subject, $body);
         $this->sendMailImpl($ctx, $recipients, $subject, $body, $from, $images, $useHtml);
@@ -612,25 +615,39 @@ class Mailer extends Plugin implements SqlTableProvider
             throw new Exception($mess["core.mailer.3"]);
         }
 
+        // Set the from address to the addess of the current user.
+        $from = $this->resolveAdresses($ctx, array($ctx->getUser()));
+        if(count($from)) {
+          $from = $from[0];
+        } else {
+            $this->logError("[mailer]", 'zonder e-mailadres: '.print_r($ctx->getUser(), true));
+            throw new Exception("Je mag geen e-mails versturen, omdat je geen e-mailadres hebt.");
+        }
+
         $httpVars = $requestInterface->getParsedBody();
         $mailer = array_pop($mailers);
 
-        //$toUsers = array_merge(explode(",", $httpVars["users_ids"]), explode(",", $httpVars["to"]));
-        //$toGroups =  explode(",", $httpVars["groups_ids"]);
-        $toUsers = $httpVars["emails"];
+        $emails = array(
+            array(
+                "name" => $ctx->getRepository()->getDisplay(),
+                "adress" => $ctx->getRepository()->getSafeOption("EMAIL")
+            )
+        );
+        if (!count($emails)) {
+            throw new Exception($mess["core.mailer.2"]);
+        }
 
-        $emails = $this->resolveAdresses($ctx, $toUsers);
-        $from = $this->resolveFrom($ctx, $httpVars["from"]);
         $imageLink = isSet($httpVars["link"]) ? $httpVars["link"] : null;
 
-        $subject = $httpVars["subject"];
+        $subject = '[.Org - ' . $ctx->getRepository()->getDisplay() . '] ' . $httpVars["subject"];
         $body = $httpVars["message"];
+
         $x = new \Pydio\Core\Http\Response\SerializableResponseStream();
         $responseInterface = $responseInterface->withBody($x);
 
         if (count($emails)) {
             $mailer->sendMail($requestInterface->getAttribute("ctx"), $emails, $subject, $body, $from, $imageLink);
-            $x->addChunk(new \Pydio\Core\Http\Message\UserMessage(str_replace("%s", count($emails), $mess["core.mailer.1"])));
+            $x->addChunk(new \Pydio\Core\Http\Message\UserMessage($mess["core.mailer.1"]));
         } else {
             $x->addChunk(new \Pydio\Core\Http\Message\UserMessage($mess["core.mailer.2"], LOG_LEVEL_ERROR));
         }
@@ -678,6 +695,7 @@ class Mailer extends Plugin implements SqlTableProvider
         if (isSet($newRecs)) {
             $recipients = array_merge($recipients, $newRecs);
         }
+
         // Recipients can be either UserInterface objects, either array(adress, name), either "adress".
         foreach ($recipients as $recipient) {
             if (is_object($recipient) && $recipient instanceof AbstractUser) {
