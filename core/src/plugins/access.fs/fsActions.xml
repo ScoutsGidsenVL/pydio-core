@@ -224,7 +224,7 @@
 					actionBarGroup="get,inline,info_panel">
 				</context>
 				<selectionContext dir="true" file="true" recycle="false" unique="false" enableRoot="true"/></gui>
-			<rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly=""/>
+      <rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly="true"/>
 			<processing>
 				<clientCallback prepareModal="true"><![CDATA[
 					var userSelection = ajaxplorer.getUserSelection();
@@ -461,7 +461,7 @@
                          contextMenu="false" infoPanel="true"/>
 				<selectionContext dir="true" file="true" recycle="false" unique="true"/>
 			</gui>
-			<rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly="false"/>
+      <rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly="true"/>
 			<processing>
 				<clientCallback prepareModal="true"><![CDATA[
 					var loadFunc = function (oForm){
@@ -634,7 +634,7 @@
 					actionBarGroup="change">
 				</context>
 				<selectionContext dir="true" file="true" recycle="false" unique="false" image="false" editable="false"/></gui>
-			<rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly=""/>
+      <rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly="true"/>
 			<processing>
 				<clientCallback prepareModal="true"><![CDATA[
 					if(ajaxplorer.user){
@@ -865,7 +865,7 @@
                 </context>
                 <selectionContext dir="true" file="true" recycle="false" unique="false" allowedMimes="" behaviour="hidden"/>
             </gui>
-            <rightsContext noUser="true" userLogged="only" read="true" write="true" adminOnly=""/>
+            <rightsContext noUser="true" userLogged="only" read="true" write="true" adminOnly="true"/>
             <processing>
                 <clientCallback prepareModal="true"><![CDATA[
                     var userSelection =  ajaxplorer.getUserSelection();

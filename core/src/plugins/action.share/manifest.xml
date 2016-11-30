@@ -39,7 +39,7 @@
                     <context selection="true" dir="true" recycle="hidden" actionBar="true" actionBarGroup="get,info_panel_share" contextMenu="true"/>
                     <selectionContext dir="true" file="true" recycle="false" unique="true" evalMetadata="!metadata.get('ajxp_shared')"/>
                 </gui>
-                <rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly=""/>
+                <rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly="true"/>
                 <processing>
                     <clientCallback prepareModal="true"><![CDATA[
                         if(!pydio.getController().shareDialogLoader) {
@@ -71,7 +71,7 @@
                 </processing>
             </action>
             <action name="share">
-                <rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly=""/>
+                <rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly="true"/>
                 <processing>
                     <serverCallback methodName="switchAction" restParams="/simple_share_type/file+" developerComment="Main action for sharing a file or a folder">
                         <input_param description="Path of the resource to share" name="nodes" type="AJXP_NODE[]" mandatory="true"/>

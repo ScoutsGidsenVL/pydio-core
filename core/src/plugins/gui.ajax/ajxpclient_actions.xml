@@ -87,7 +87,7 @@
 				</context>
                 <selectionContext dir="true" file="true" recycle="false" unique="true"/>
 			</gui>
-			<rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly=""/>
+            <rightsContext noUser="true" userLogged="only" read="true" write="false" adminOnly="true"/>
 			<processing>
 				<clientCallback prepareModal="false"><![CDATA[
 					document.fire("ajaxplorer:add_bookmark");

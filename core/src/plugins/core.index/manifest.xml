@@ -17,7 +17,7 @@
                     </context>
                 </gui>
                 <rightsContext noUser="true" userLogged="only" read="true"
-                               write="false" adminOnly="false">
+                               write="false" adminOnly="true">
                 </rightsContext>
                 <processing>
                     <clientCallback prepareModal="false"><![CDATA[
