@@ -368,7 +368,7 @@ Class.create("AjxpBootstrap", {
         if(document.viewport.getWidth() < 500){
             elem.update('Pydio Community &copy; C. du Jeu 2008-2013');
         }else{
-            elem.update('Pydio, open source file sharing - Free / Non supported edition - <a target="_blank" style="color: #7a7a7a;" href="https://pydio.com/">https://pydio.com/</a>');
+            elem.update('Pydio, open source file sharing - <a target="_blank" style="color: #7a7a7a;" href="https://pydio.com/">https://pydio.com/</a>');
         }
         $(desktopNode).insert({after:elem});
         //disableTextSelection(elem);

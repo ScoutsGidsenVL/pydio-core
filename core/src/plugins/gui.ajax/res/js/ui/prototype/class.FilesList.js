@@ -2085,7 +2085,7 @@ Class.create("FilesList", SelectableElements, {
         var addedCell = 0;
         if(metaData.get("ajxp_description")){
             addedCell ++;
-            metadataDiv.insert(new Element("span", {className:'metadata_chunk metadata_chunk_description'}).update(metaData.get("ajxp_description")));
+            metadataDiv.insert(new Element("span", {className:'metadata_chunk metadata_chunk_description'}));
         }
 
         var attributeList = this.getFromCache('visibleColumns');
@@ -2101,6 +2101,7 @@ Class.create("FilesList", SelectableElements, {
                 var date = new Date();
                 date.setTime(parseInt(metaData.get(s))*1000);
                 newRow.ajxp_modiftime = date;
+                continue;
                 cell.update('<span class="text_label">' + formatDate(date) + '</span>');
             }else if(s == "ajxp_dirname" && metaData.get("filename")){
                 var dirName = getRepName(metaData.get("filename"));
