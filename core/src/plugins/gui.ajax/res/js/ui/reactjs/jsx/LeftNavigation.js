@@ -469,7 +469,7 @@
                 }.bind(this);
                 var createAction = (
                     <div className="workspaces">
-                        <div className="workspace-entry" onClick={createClick} title={messages[418]}>
+                        <div className="workspace-entry" onClick={createClick}>
                             <span className="workspace-badge">+</span>
                             <span className="workspace-label">{messages[417]}</span>
                             <span className="workspace-description">{messages[418]}</span>
@@ -661,7 +661,6 @@
                 <div
                     className={currentClass}
                     onClick={onClick}
-                    title={this.props.workspace.getDescription()}
                     onMouseOver={onHover}
                     onMouseOut={onOut}
                 >

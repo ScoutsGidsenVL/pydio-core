@@ -308,7 +308,7 @@
 
         render: function(){
             var userLabel = this.props.user.getPreference("USER_DISPLAY_NAME") || this.props.user.id;
-            var loginLink = '';
+            /*var loginLink = '';
             if(this.props.controller.getActionByName("logout") && this.props.user.id != "guest"){
                 var parts = MessageHash["user_home.67"].replace('%s', userLabel).split("%logout");
                 loginLink = (
@@ -327,7 +327,6 @@
             }
 
             let gettingStartedBlock = null;
-            let adminAccessBlock = null;
             var gettingStartedPanel;
             if(this.props.enableGettingStarted){
                 var dgs = function(){
@@ -340,7 +339,9 @@
                     this.setState({showGettingStarted:false});
                 }.bind(this);
                 gettingStartedPanel = <TutorialPane closePane={close} open={this.state.showGettingStarted}/>;
-            }
+            }*/
+
+            let adminAccessBlock = null;
             let a = this.props.controller.getActionByName('switch_to_settings');
             if(!a.deny){
                 let func = function(){
@@ -351,13 +352,15 @@
                 adminAccessBlock = <small> {sentenceParts[0]} <a onClick={func}>{dashName}</a> {sentenceParts.length > 1 ? sentenceParts[1] : null}</small>;
             }
 
+            let handleidingBlock = (
+                <a id="link-handleiding" href="https://wiki.scoutsengidsenvlaanderen.be/doku.php?id=handleidingen:org_website:start" target="_blank">Handleiding</a>
+            );
+
             return (
                 <div id="welcome">
-                    {gettingStartedPanel}
                     {MessageHash['user_home.40'].replace('%s', userLabel)}
                     <p>
-                        {loginLink}
-                        {gettingStartedBlock}
+                        {handleidingBlock}
                         {adminAccessBlock}
                     </p>
                 </div>
@@ -499,10 +502,10 @@
             }
         },
         render: function(){
-            if(!this.state.workspace){
+            //if(!this.state.workspace){
                 //return <div id="ws_legend" className="empty_ws_legend"></div>;
                 return <DlAppsPanel/>
-            }
+            //}
             var blocks = [];
             var data = this.state.data;
             var usersData = data['core.users'];
@@ -665,18 +668,18 @@
         },
         onShowLegend: function(){
             // PROTO STUFF!
-            $('home_center_panel').addClassName('legend_visible');
+            //$('home_center_panel').addClassName('legend_visible');
         },
         onHideLegend: function(){
             // PROTO STUFF!
             $('home_center_panel').removeClassName('legend_visible');
         },
         onHoverLink:function(event, ws){
-            bufferCallback('hoverWorkspaceTimer', 400, function(){
+            /*bufferCallback('hoverWorkspaceTimer', 400, function(){
                 if(this.refs && this.refs.legend){
                     this.refs.legend.setWorkspace(ws);
                 }
-            }.bind(this));
+            }.bind(this));*/
         },
         onOutLink:function(event, ws){
             this.refs.legend.setWorkspace(null);
@@ -752,7 +755,7 @@
 
     var WelcomeComponents = global.WelcomeComponents || {};
     WelcomeComponents.UserDashboard = UserDashboard;
-    WelcomeComponents.TutorialPane = TutorialPane;
+    //WelcomeComponents.TutorialPane = TutorialPane;
     WelcomeComponents.QRCodeDialogLoader = QRCodeDialogLoader;
     global.WelcomeComponents = WelcomeComponents;
 
