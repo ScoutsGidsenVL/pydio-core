@@ -1441,6 +1441,13 @@ class FsAccessDriver extends AbstractAccessDriver implements IAjxpWrapperProvide
                 }
                 $nodes = [];
                 while(false !== ($file = readdir($handle))){
+
+                    // Ignore MS Windows thumb cache files
+                    // Ignore temporary MS Office files
+                    if (preg_match('/^Thumbs.db$|^~\$/', $file) == 1) {
+                        continue;
+                    }
+
                     $nodes[] = $file;
                 }
                 closedir($handle);
