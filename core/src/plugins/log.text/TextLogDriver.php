@@ -322,7 +322,7 @@ class TextLogDriver extends AbstractLogDriver
                 if (count($matches) < 3) continue;
                 // rebuild timestamp
                 $date = $matches[0];
-                list($m, $d, $Y, $h, $i, $s) = sscanf($date, "%i-%i-%i %i:%i:%i");
+                list($Y, $m, $d, $h, $i, $s) = sscanf($date, "%i-%i-%i %i:%i:%i");
                 $tStamp = mktime($h, $i, $s, $m, $d, $Y);
                 $logs[$fileName] = [
                     "is_file" => true,
